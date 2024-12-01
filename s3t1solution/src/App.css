@@ -1,8 +1,14 @@
-body {
-  background-color: aliceblue;
+/* Container elements */
+
+body, html, #root {
+  background-color: beige;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -10,4 +16,26 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* Event Code Form Group */
+
+.eventCodeFormGroup {
+  height: 10%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.eventCodeInput {
+  width: 100%;
+  height: 60%;
+  padding: 2.5%;
+  outline: none;
+  border: none;
+  border-radius: 30px;
 }
