@@ -16,7 +16,7 @@ const EventMatch = ({ matchData }) => {
             <p className='matchTime'>{dateNumToTime(matchData.predicted_time)}</p>
             <table className='matchStatisticsTable'>
                 <thead>
-                    <tr>
+                    <tr bgColor="white">
                         <th>Alliance</th>
                         <th>Auto Score</th>
                         <th>Teleop Score</th>
@@ -27,7 +27,7 @@ const EventMatch = ({ matchData }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr bgcolor="skyblue">
+                    <tr bgcolor="crimson">
                         <td>Red</td>
                         <td>{matchData.red_auto}</td>
                         <td>{matchData.red_teleop}</td>
@@ -36,7 +36,7 @@ const EventMatch = ({ matchData }) => {
                         <td>{matchData.red_score}</td>
                         <td>{matchData.red_endgame_epa_sum + matchData.red_teleop_epa_sum}</td>
                     </tr>
-                    <tr bgcolor="crimson">
+                    <tr bgcolor="skyblue">
                         <td>Blue</td>
                         <td>{matchData.blue_auto}</td>
                         <td>{matchData.blue_teleop}</td>
@@ -51,16 +51,16 @@ const EventMatch = ({ matchData }) => {
                 <table className='teamsTable'>
                     <tbody>
                         <tr>
-                            <td bgColor="skyblue">{matchData.blue_1}</td>
                             <td bgColor="crimson">{matchData.red_1}</td>
+                            <td bgColor="skyblue">{matchData.blue_1}</td>
                         </tr>
                         <tr>
-                            <td bgColor="skyblue">{matchData.blue_2}</td>
                             <td bgColor="crimson">{matchData.red_2}</td>
+                            <td bgColor="skyblue">{matchData.blue_2}</td>
                         </tr>
                         <tr>
-                            <td bgColor="skyblue">{matchData.blue_3}</td>
                             <td bgColor="crimson">{matchData.red_3}</td>
+                            <td bgColor="skyblue">{matchData.blue_3}</td>
                         </tr>
                     </tbody>
                 </table>

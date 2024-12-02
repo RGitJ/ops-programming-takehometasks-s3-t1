@@ -1,7 +1,7 @@
 /* Container Elements */
 
 body, html, #root {
-  background-color: beige;
+  background-color: #a8eeff;
   display: flex;
   justify-content: center;
   align-items: center;
