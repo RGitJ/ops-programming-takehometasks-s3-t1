@@ -1,17 +1,22 @@
+import React from 'react';
 
 // Hooks
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // Styles
 import './App.css';
 
+// Components
+import EventCodeForm from './components/EventCodeForm/EventCodeForm';
+import EventMatchList from './components/EventMatchList/EventMatchList.js';
+
 const App = () => {
-  const [eventStatistics, setEventStatistics] = useState(null);
-  const [eventCode, setEventCode] = useState("2023njski");
+  const [eventMatches, setEventMatches] = useState(undefined);
+  const [eventCode, setEventCode] = useState("");
 
   const fetchEvent = async () => {
     try {
-      const url = `https://api.statbotics.io/v3/event/${eventCode}`;
+      const url = `https://api.statbotics.io/v2/matches/event/${eventCode}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
@@ -26,22 +31,16 @@ const App = () => {
     }
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    const eventData = fetchEvent()
+    const data = await fetchEvent();
+    setEventMatches(data);
   }
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit} className='eventCodeFormGroup'>
-        <input
-          type='text'
-          value={eventCode}
-          onChange={e => setEventCode(e.target.value)}
-          className='eventCodeInput'
-          placeholder='Enter event code...'
-        />
-      </form>
+      <EventCodeForm handleSubmit={handleSubmit} eventCode={eventCode} setEventCode={setEventCode} />
+      <EventMatchList eventMatches={eventMatches} />
     </div>
   );
 }
